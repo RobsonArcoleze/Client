@@ -21,7 +21,7 @@ public class ClientController {
 	private ClientService service;
 	
 	@GetMapping
-	public ResponseEntity<Page<ClientDTO>> findAll(
+	public ResponseEntity<Page<ClientDTO>> findAll (
 			@RequestParam(value = "page", defaultValue = "0") Integer page,
 			@RequestParam(value = "linesPerPage", defaultValue = "12") Integer linesPerPage,
 			@RequestParam(value = "direction", defaultValue = "ASC") String direction,			
