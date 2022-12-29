@@ -1,9 +1,11 @@
 package com.robsonArcoleze.Client.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.robsonArcoleze.Client.dto.ClientDTO;
@@ -52,6 +54,16 @@ public class ClientService {
 			throw new ResourceNotFoundException("Recurso não encontrado");
 		}
 		
+	}
+	
+	@Transactional(propagation = Propagation.SUPPORTS)
+	public void delete(Long id) {
+		try {
+			repository.deleteById(id);
+		}
+		catch(EmptyResultDataAccessException e) {
+			throw new ResourceNotFoundException("Recurso não encontrado");
+		}
 	}
 	
 private void copyDtoToEntity(ClientDTO dto, Client entity) {
