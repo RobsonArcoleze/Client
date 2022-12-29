@@ -11,6 +11,8 @@ import com.robsonArcoleze.Client.entities.Client;
 import com.robsonArcoleze.Client.repositories.ClientRepository;
 import com.robsonArcoleze.Client.services.exceptions.ResourceNotFoundException;
 
+import jakarta.persistence.EntityNotFoundException;
+
 @Service
 public class ClientService {
 
@@ -61,4 +63,4 @@ private void copyDtoToEntity(ClientDTO dto, Client entity) {
 		entity.setChildren(dto.getChildren());
 	}
 }
-}
+
