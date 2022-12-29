@@ -1,4 +1,4 @@
-package com.robsonArcoleze.Client.repository;
+package com.robsonArcoleze.Client.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
